@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title> ToDo App </title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <h2> Login </h2>
+
+    <form action ="/verify" method="POST">
+
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="username">
+        </div>
+
+        <div>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password"
+                   minlength="8" required placeholder="password">
+        </div>
+
+        <button type="submit"> Login </button>
+
+    </form>
+
+    <form action ="/redirectsignup" method="POST">
+        <button> Sign Up </button>
+    </form>
+
+
+
+</div>
+
+</body>
+</html>
