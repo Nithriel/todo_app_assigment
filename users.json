@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "username": "eric",
+    "password": "12345678",
+    "task": [],
+    "complete": []
+  },
+  {
+    "username": "bob",
+    "password": "12345678",
+    "task": [],
+    "complete": []
+  },
+  {
+    "username": "bobby",
+    "password": "12345678",
+    "task": [],
+    "complete": []
+  },
+  {
+    "username": "abc123",
+    "password": "abcd1234",
+    "task": [],
+    "complete": []
+  }
+]
