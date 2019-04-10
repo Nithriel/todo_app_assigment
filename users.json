@@ -3,10 +3,12 @@
     "username": "Raphael_Pletz",
     "password": "5kndNiEFmTQ86GY",
     "task": [
-      "123"
+      "asd",
+      "as"
     ],
     "complete": [
-      "123"
+      "asd",
+      "asda"
     ]
   },
   {
@@ -14,5 +16,15 @@
     "password": "Qf6PEGyCD3y3wdx",
     "task": [],
     "complete": []
+  },
+  {
+    "username": "Ralph",
+    "password": "fvCRVvz8CVZEi4e",
+    "task": [
+      "asd"
+    ],
+    "complete": [
+      "asdasd"
+    ]
   }
 ]
