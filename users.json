@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "username": "Ralph",
+    "password": "9nWzb9G9K7NKBmM",
+    "task": [
+      "asd",
+      "asd"
+    ],
+    "complete": [
+      "asd"
+    ]
+  },
+  {
+    "username": "patrick",
+    "password": "uwuuwuuwu",
+    "task": [
+      "asd",
+      "asd"
+    ],
+    "complete": [
+      "asd"
+    ]
+  }
+]
