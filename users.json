@@ -2,8 +2,12 @@
   {
     "username": "Raphael_Pletz",
     "password": "5kndNiEFmTQ86GY",
-    "task": [],
-    "complete": []
+    "task": [
+      "123"
+    ],
+    "complete": [
+      "123"
+    ]
   },
   {
     "username": "Jason",
