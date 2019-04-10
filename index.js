@@ -66,6 +66,7 @@ app.post("/removetask", function(req, res) {
 
     for (var u = 0; u < users.length; u++) {
             if (users[u].username === curr_user) {
+                users[u].task = task;
                 users[u].complete = complete;
         }
     }
