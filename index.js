@@ -17,8 +17,10 @@ var complete = [];
 var authentication = false;
 //placeholders for accounts
 var account = [];
-//placeholder for messags
+//placeholder for messages
 var msg = "";
+//placeholder for current user
+var curr_user = "";
 
 //Post methods
 
@@ -28,6 +30,18 @@ app.post("/addtask", function(req, res) {
 
     if (newTask !== "") {
         task.push(newTask);
+
+        var readUser = fs.readFileSync('users.json');
+        var users = JSON.parse(readUser);
+
+        for (var u = 0; u < users.length; u++) {
+            if (users[u].username === curr_user) {
+                users[u].task = task;
+            }
+        }
+
+        fs.writeFileSync('users.json', JSON.stringify(users, undefined, 2));
+
     }
 
     res.redirect("/");
@@ -46,6 +60,18 @@ app.post("/removetask", function(req, res) {
             task.splice(task.indexOf(completeTask[i]), 1);
         }
     }
+
+    var readUser = fs.readFileSync('users.json');
+    var users = JSON.parse(readUser);
+
+    for (var u = 0; u < users.length; u++) {
+            if (users[u].username === curr_user) {
+                users[u].complete = complete;
+        }
+    }
+
+    fs.writeFileSync('users.json', JSON.stringify(users, undefined, 2));
+
     res.redirect("/");
 });
 
@@ -53,6 +79,18 @@ app.post("/cleartask", function(req, res) {
 
     task = [];
     complete =[];
+
+    var readUser = fs.readFileSync('users.json');
+    var users = JSON.parse(readUser);
+
+    for (var u = 0; u < users.length; u++) {
+        if (users[u].username === curr_user) {
+            users[u].task = task;
+            users[u].complete = complete;
+        }
+    }
+
+    fs.writeFileSync('users.json', JSON.stringify(users, undefined, 2));
 
     res.redirect("/");
 });
@@ -119,6 +157,7 @@ app.post("/verify", function(req, res) {
     for (var i = 0; i < account.length; i++) {
         if (account[i].username === username && account[i].password === password) {
             authentication = true;
+            curr_user = account[i].username
         }
     }
 
@@ -134,6 +173,10 @@ app.post("/redirectlogin", function(req, res) {
     res.redirect("/login");
 });
 
+app.post("/logout", function(req, res) {
+    authentication = false;
+    res.redirect("/login");
+});
 
 //render ejs
 app.get("/", function(req, res) {
@@ -145,6 +188,8 @@ app.get("/", function(req, res) {
 });
 
 app.get("/login", function(req, res) {
+
+    curr_user = "";
 
     try {
         var readUser = fs.readFileSync('users.json');
@@ -159,6 +204,8 @@ app.get("/login", function(req, res) {
             }
             if (count === 0){
                 account.push(users[u]);
+                task = users[u].task;
+                complete = users[u].complete;
             } else{
                 count = 0;
             }
